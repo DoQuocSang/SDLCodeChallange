@@ -1,2 +1,2 @@
 # SDLCodeChallange
-Test code at SDL
+Test code about HTML and CSS
