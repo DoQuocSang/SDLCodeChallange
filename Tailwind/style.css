@@ -1,0 +1,238 @@
+/* GENERAL */
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root { 
+    --light-pink: #fdf2f8;
+    --normal-pink: #eb4898;
+    --dark-pink: #dc2d77;
+    --dark-gray: #818181ed;
+    --normal-gray: #64749a;
+    --light-gray: #cbd5e1;
+    --box-shadow: #c5c5c591;
+}
+  
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 30px auto;
+}
+
+.layout-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 30px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-content h3{
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.main-content p.content {
+    color: var(--dark-gray);
+}
+
+.main-content p.feature-text {
+    font-weight: bold;
+    color: var(--normal-pink);
+}
+
+.main-content button {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: .9rem;
+    max-width: fit-content;
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    background: var(--light-pink);
+	color: var(--dark-pink);
+	border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-content button i {
+    font-size: .5rem;
+}
+
+/* LAYOUT BUTTON GRID */
+.layout-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(6rem, 1fr));
+    column-gap: 30px;
+    max-width: fit-content;
+
+}
+
+.layout-buttons-grid .grid-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--normal-gray);
+    gap: 10px;
+}
+
+.layout-buttons-grid .grid-item:focus,
+.layout-buttons-grid .grid-item:focus i {
+    color: var(--dark-pink);
+}
+
+.layout-buttons-grid .grid-item i {
+    color: var(--light-gray);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.layout-buttons-grid .grid-item:hover i {
+    color: var(--normal-gray);
+}
+
+.layout-buttons-grid .grid-item p {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* MAIN VIEW */
+.main-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 30px; */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow) 0 10px 20px;
+}
+
+/* Card image */
+.main-card .card-image {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    background-color: red;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.main-card .card-image img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.main-card .card-content {
+    flex-grow: 1;
+    padding: 0 30px;
+}
+
+.main-card .card-content .name-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.main-card .card-content .name-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-card .card-content .price {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.main-card .card-content .status {
+    font-size: .9rem;
+}
+
+/* Size buttons */
+.main-card .card-content .size-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.main-card .card-content .size-buttons button {
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.main-card .card-content .size-buttons button:first-child {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+}
+
+/* Main buttons */
+.main-card .card-content .main-buttons {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+.main-card .card-content .main-buttons .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.main-card .card-content .main-buttons .action-buttons button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: .9rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.main-card .card-content .main-buttons .action-buttons button:first-child {
+    background: black;
+    color: white;
+}
+
+.main-card .card-content .main-buttons .action-buttons button:last-child {
+    border: 1px solid var(--light-gray);
+}
+
+
+
