@@ -258,7 +258,7 @@
     background-color: var(--normal-teal);
 }
 
-.main-card .card-content .main-buttons-grid .favorite-wrapper {
+.main-card.brutalist-layout .card-content .main-buttons-grid .favorite-wrapper {
     justify-content: flex-start;
 }
 
