@@ -99,10 +99,6 @@ function CountVowel(str) {
 function ConvertToTitleCase(str) {
     var arr = str.toLowerCase().trim().split(" ");
 
-    // arr.forEach((word, index) => {
-    //     arr[index] = word.charAt(0).toUpperCase() + word.slice(1);
-    // });
-
     for(let i = 0; i < arr.length; i++){
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
     }
@@ -157,24 +153,119 @@ function ConvertTime(str) {
 // Ex 3 ===================================================
 // Map data to frontend format. The main element is location key and we need to map all data to it. We will have 5 objects at the end.
 // ========================================================
+const loc = [
+    {
+        location_key: [32, 22, 11],
+        autoassign: 10,
+    },
+    {
+        location_key: [41, 42],
+        autoassign: 1,
+    },
+];
+  
+const bulkConfig = [
+    {
+      dataValues: {
+        config_key: 100,
+      },
+    },
+    {
+      dataValues: {
+        config_key: 200,
+      },
+    },
+];
 
+function MapData(loc, bulkConfig) {
+    let result = [];
+    for(let obj of loc) {
+        for(let key of obj.location_key) {
+            let item = {
+                config_key: bulkConfig[obj.autoassign - 1]?.dataValues.config_key,
+                location_key: key,
+                autoassign: obj.autoassign,
+            }
 
+            result.push(item);
+        }
+    }
+
+    return result;
+}
+
+// console.log(MapData(loc, bulkConfig));
 
 // Ex 4 ===================================================
 // Write a function to Replace parameters in url
 // ========================================================
-const initialUrl = "/posts/:postId/comments/:commentId";
+// const initialUrl = "/posts/:postId/comments/:commentId";
+// console.log(initialUrl.match(/:\w+/g))
 
-console.log(initialUrl.match(/:\w+/g))
+function replaceParamsInUrl(initialUrl, arr){
+    let newUrl = initialUrl;
 
-console.log(initialUrl.replace(/:\w+/g, '1'))
+    for(let obj of arr) {
+        newUrl= newUrl.replace(`:${obj.from}`, obj.to);
+    }
 
-function replaceParamsInUrl(initialUrl, args){
-    
+    return newUrl;
 }
+
 // const resultUrl = replaceParamsInUrl(initialUrl, [
 //   { from: "postId", to: "1" },
 //   { from: "commentId", to: "3" },
 // ]);
 
 // console.log(resultUrl);
+
+// Ex 5 ===================================================
+// // Format backend validation message to frontend format
+// ========================================================
+const backendErrors = {
+    email: {
+        errors: [
+            {
+                message: "Can't be blank",
+            },
+        ],
+    },
+    password: {
+        errors: [
+            {
+                message: "Must contain symbols in different case",
+            },
+            {
+                message: "Must be at least 8 symbols length",
+            },
+        ],
+    },
+    passwordConfirmation: {
+        errors: [
+            {
+                message: "Must match with password",
+            },
+        ],
+    },
+};
+
+function FormatMessage(backendErrors) { 
+    let result = [];
+
+    for(const [key, value] of Object.entries(backendErrors)) {
+        // console.log(value)
+        let item = {
+            key: "",
+        }
+
+        for(let message in value.errors) {
+            console.log(message)
+            item.key = message;
+        }
+
+    }
+
+    return result;
+}
+
+console.log(FormatMessage(backendErrors));
