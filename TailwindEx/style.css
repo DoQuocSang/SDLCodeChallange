@@ -4,10 +4,6 @@
     margin: 0;
 }
 
-body {
-    font-family: "Roboto", sans-serif;
-}
-
 :root { 
     --light-pink: #fdf2f8;
     --normal-pink: #eb4898;
@@ -27,6 +23,7 @@ body {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
 }
 
 .container {

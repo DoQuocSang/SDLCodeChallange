@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root { 
+    --light-gray-1: #f3f4f6;
+    --light-gray-2: #cbd5e1;
+    --normal-gray: #64749a;
+    --dark-gray: #818181ed;
+    --normal-teal: #00eb9c;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    max-width: 720px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.excercise-number {
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--normal-teal);
+    color: white;
+    margin-right: 10px;
+}
