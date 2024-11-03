@@ -252,17 +252,18 @@ const backendErrors = {
 function FormatMessage(backendErrors) { 
     let result = [];
 
-    for(const [key, value] of Object.entries(backendErrors)) {
-        // console.log(value)
-        let item = {
-            key: "",
+    for(const value of Object.values(backendErrors)) {
+        let item = "";
+
+        for(let error of value.errors) {
+            if(item === ""){
+                item = item.concat(error.message);
+            } else {
+                item = item.concat(", ", error.message);
+            }
         }
 
-        for(let message in value.errors) {
-            console.log(message)
-            item.key = message;
-        }
-
+        result.push(item);
     }
 
     return result;
