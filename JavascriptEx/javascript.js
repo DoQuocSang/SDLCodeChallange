@@ -252,7 +252,7 @@ const backendErrors = {
 function FormatMessage(backendErrors) { 
     let result = [];
 
-    for(const value of Object.values(backendErrors)) {
+    for(const [key, value] of Object.entries(backendErrors)) {
         let item = "";
 
         for(let error of value.errors) {
@@ -263,7 +263,7 @@ function FormatMessage(backendErrors) {
             }
         }
 
-        result.push(item);
+        result.push(key.charAt(0).toUpperCase() + key.slice(1) + ": " + item);
     }
 
     return result;
