@@ -1,0 +1,27 @@
+net 8 4
+agular 5 8
+
+- JS không tự chèn chấu ; trước []
+- Dùng +a để chuyển a về số
+- Dùng " - 7 để chuyển "" -> 0
+- " " và "0" mang giá trị boolean là true (khác với "" -> false)
+- 0, "", null, undefined, NaN --> false.
+- == so sánh giá trị ==== so sánh giá trị và kiểu dữ liệu
+- ?? dùng để kiểm tra biến có được gán hay chưa, nếu rồi thì trả về chính nó, chưa thì trả về giá trị thứ 2 (thường dùng đẻ gán giá trị mặc định)
+- case dùng ===
+
+- NÊN CMT: 
+Overall architecture, high-level view.
+Function usage.
+Important solutions, especially when not immediately obvious.
+- KO NÊN CMT:
+That tell “how code works” and “what it does”.
+Put them in only if it’s impossible to make the code so simple and self-descriptive that it doesn’t require them.
+
+- NaN là unique
+
+- Các hàm parseInt, parseFloat chỉ có thể thành công nếu ký tự khác số ko làm cản trở quá trình duỵet tìm số từ trái qua phải
+
+- Slice ko bao gồm index ở tham số thứ 2
+
+- localeCompare để só sánh chữ theo utf-8
