@@ -1,6 +1,6 @@
 net 8 4
 agular 5 8
-
+---------------------------------
 - JS không tự chèn chấu ; trước []
 - Dùng +a để chuyển a về số
 - Dùng " - 7 để chuyển "" -> 0
@@ -25,3 +25,63 @@ Put them in only if it’s impossible to make the code so simple and self-descri
 - Slice ko bao gồm index ở tham số thứ 2
 
 - localeCompare để só sánh chữ theo utf-8
+
+- 1_000_000
+
+- push và pop nhanh hơn shift và unshift do nó chỉ xóa thay vì phải cập nhật vị trí các phần tử còn lại
+
+- for in lặp qua các enumerable property, không nên dùng cho aray vì nó lặp qua tất cả thuộc tính, ảnh hưởng đến hiệu suất aray-like (chứa các thuộc tính ko phải số nữa)
+- for of lặp qua giá trị
+
+- có thể dùng thuộc tính có key là symbol để ẩn nó khỏi vòng lặp, tăng bảo mật
+---------------------------------
+- arr.length có thể ghi đè, nếu gán số nhỏ hơn sẽ bị cắt giảm --> Mất data
+- arr.find(item => ...) dùng để kiếm 1 item khác với arr.Filter
+- ar.map để map các item với giá trị mới
+- arr.sort sẽ convert các item về chuỗi để so sÁNH TRỪ KHI CÓ một hàm định nghĩa cách so sánh được truyền vào (nhận 2 tham số và return về một giá trị số (âm là bé hơn, 0 là bằng nhau, dương là lớn hơn))
+VD: arr.sort((a, b) => b - a); --> sắp xếp giảm
+- arr.reduce dùng để lặp và trả về 1 giá trị duy nhất, có 2 tham số thường dùng (kq của lần gọi hàm trước đó, item)
+- có thể dùng slice() để copy mảng
+------------------------------
+- weakMap weakSet để tiết kiệm bộ nhớ, loại bỏ các obj ko có tham chiếu đến n
+- JS tự động loại bỏ các obj ko có tham chiếu trừ trường hợp obj nằm trong arr hoặc map
+-------------------------------
+- Destructuring dùng để phân rã các item của 1 iterable tùy chọn thành các biến, có thể để trống để bỏ qua 
+VD: let arr = ["John", "This will be skipped", "Smith"]
+let [firstName, , surname] = arr;
+- Có thể dùng Destructuring để hoán đổi giá trị các biến
+- Có thể dung ...AnyName (đặt ở cuối cùng) để lấy tất cả giá trị còn lại (AnyName sẽ là 1 mảng)
+- Có thể gán giá trị mặc định cho các biến
+- Destructuring đối với obj thì dùng cặp dấu ngoặc nhọn
+- Khi obj và arr là tham số của hàm, có thể dùng Destructuring để bóc tách các thuộc tính của ibj và arr
+-------------------------------------
+- JSON chỉ chứa "" ko có '', các thuộc tính được bọc trong dấu ""
+- JSON ko chứa phương thức và các thuộc tính symbol
+- JSON.stringify(value, replacer, space) : replacer là hàm thay thế tránh bị vòng lặp trong json, space là số khoảng trắng được dũng cho mỗi dòng cấp con trong json (khác 0 thì sẽ uôn xuống dòng)
+--------------------------------------
+- Biến ...args là mảng tham số đặc biệt cho hàm
+- ...arr dùng để trải dài các phần tử của mảng hoặc obj
+- Có thể dùng [...arr] dể copy mảng hoặc obj
+---------------------------------------
+- Closure là một tập hợp các hàm được viết lồng vào trong một hàm khác
+- Closure lưu trữ giá trị của outer function theo kiểu tham chiếu
+----------------------------------------
+- vả không có phạm vi khối nhưng có phạm vi hàm
+- var có thể đc dùng trước khi nó được định nghĩa bởi vì JS sẽ hoist phần khai báo lên trên cùng
+------------------------------------------
+- Bất cứ thứ gì được khai báo bằng var đều là thuộc tính của global obj
+-----------------------------------------
+- Có thể tạo hàm bằng câu lệnh new Function ([arg1, arg2, ...argN], functionBody); --> cực kì hữu dụng khi tạo hàm có phần thân động dựa trên các chuỗi do server trả về
+------------------------------------------
+setTimeout lồng nhau sẽ đảm bảo thời gian ngắt quãng đều nhau, setInterval do tốn thời gian thực thi mã nên sẽ ko đều
+
+
+
+
+
+
+
+
+=================================
+??? chú ý hàm lồng nhau (closure)
+=================================
