@@ -65,6 +65,7 @@ let [firstName, , surname] = arr;
 ---------------------------------------
 - Closure là một tập hợp các hàm được viết lồng vào trong một hàm khác
 - Closure lưu trữ giá trị của outer function theo kiểu tham chiếu
+- Closure được tạo ra bằng cách return 1 hàm ở trong 1 hàm khác, các thuộc tính của hàm ngoài sẽ được giữ lại và đính kèm với hàm con để ko mất dữ liệu (JS sẽ ko dọn dẹp bộ nhớ sau khi hàm đã return đối với closure)
 ----------------------------------------
 - vả không có phạm vi khối nhưng có phạm vi hàm
 - var có thể đc dùng trước khi nó được định nghĩa bởi vì JS sẽ hoist phần khai báo lên trên cùng
@@ -73,15 +74,58 @@ let [firstName, , surname] = arr;
 -----------------------------------------
 - Có thể tạo hàm bằng câu lệnh new Function ([arg1, arg2, ...argN], functionBody); --> cực kì hữu dụng khi tạo hàm có phần thân động dựa trên các chuỗi do server trả về
 ------------------------------------------
-setTimeout lồng nhau sẽ đảm bảo thời gian ngắt quãng đều nhau, setInterval do tốn thời gian thực thi mã nên sẽ ko đều
+- setTimeout lồng nhau sẽ đảm bảo thời gian ngắt quãng đều nhau, setInterval do tốn thời gian thực thi mã nên sẽ ko đều
+----------------------------------------
+- Các obj kế thừa dựa vào prototype
+----------------------------------------
+- Cội nguồn của Class là các hàm lồng nhau (closure) và prototype
+- Mixin là những class chỉ chứa các phương thức để add vào class khác mà ko thông qua kế thừa (dùng Object.assign(MyClass.prototype, methodMixin) để copy phương thức)
+-----------------------------------------
+- Hàm mũi tên ko có this riêng mà sẽ lấy this từ ngữ cảnh mà nó được gọi
+- this của hàm thông thường sẽ bị thay đổi tùy theo ngữ cảnh được gọi (mặc định là đối tượng window hoặc undefined)
+- Phương thức và thuộc tính static cũng có thể được kế thừa, nó vẫn được gọi trực tiếp qua tên lớp
+-------------------------------------------
+- 1 số quy ước đặt tên
+- Thuộc tính public name
+- Thuộc tính private #name
+- Thuộc tính protacted _name
+---------------------------------------------
+- Try catch kiểm tra lỗi ở runtime, nếu có lỗi xảy ra trong các code đã được lập lịch như setInterval thì nó sẽ ko bắt đc lỗi nên try catch phải để bên trong 
+- Promise resolve chỉ thực hiện câu lệnh réolve đầu tiên
+- 2 hàm callbak resolve và reject sẽ trả về 1 giá trị, là hàm có sẵn của JS
+- Promise sinh ra để tránh trường hợp callback hell
+- Các then nối tiếp sẽ bất đồng bộ, các promise return promise là đồng bộ
+- Promise rất tiện dụng trong việc xử lý dữ liệu 
+- try then catch là câu lệnh bất đồng bộ, các code bên dưới nó vẫn được thực thi
+- async luôn trả về 1 promise
+--------------------------------------------
+- Đối với obj khi dùng this sẽ có một số trường hợp mất ngữ cảnh, có thể dùng bind() hoặc hàm vô danh để khác phục
 
-
-
-
-
-
-
-
+---------------------------------------------
+Một module có thể bao gồm một file hoặc nhiều file, và các file này có thể tương tác với nhau thông qua các export/import.
+- import chỉ thực hiện code 1 lần duy nhất vì vayạ, nếu nhiều file cùgf import thì chúng có thể thay đổi dữ liệu của module, dùng chung 1 dữ liệu
+- Khác với react, các module muốn sử dụng phải viết code ở thẻ script có type=module
+- Các module có tính trì hoãn, script chỉ chạy sau khi toàn bộ trang đã load
+----------------------------------------------
+- Chỉ có 1 export default trong 1 file
+- export default ko cần tên
+- import thông thường cần { } cho các module đã được đặt tên, còn import default thì ko cần
+- export thông thường cần phải import đúng tên của module, trong khi export default thì ko
+- export from khác với import from ở chỗ những module mà nó sử dụng không nằm ở file hiện tại (VD như các package từ bên ngoài cần che giấu cấu trúc thư mục khỏi người dùng, các module cùng chung thư mục ultils khi import from sẽ có đường dẫn khác nhau do phải trỏ trực tiếp đến đường dẫn của nó, export from cho phép import lại chúng chung 1 đường dẫn duy nhất) 
+---------------------------------------------
+- Proxy dùng để bọc các đối tượng và chặn các hành vi ko mong muốn trên đối tượng
+-------------------------------------------
+- Có thể render code từ chuỗi
+- có thể tách f(a,b,c) thành f(a)(b(c) bằng curry
+- Bigint chỉ có thể tính toán với bigint
+- +value ko hoạt động với bigint
+- WeakRef thường được sử dụng để tạo bộ nhớ đệm hoặc mảng liên kết lưu trữ các đối tượng sử dụng nhiều tài nguyên.(xử lý ảnh)
+- WeakRef lưu trữ tham chiếu và ngăn đối tượng ko bị trình gom rác chộp lấy, hữu ích trong việc giữ tham chiếu đến tượng tạm thời, không muốn lưu trữ trong bộ nhớ lâu dài
 =================================
 ??? chú ý hàm lồng nhau (closure)
+??? con trỏ this
 =================================
+
+
+
+- DOM biểu diễn mọi athứ trên trang dưới dạng các đối tượng có thể chỉnh sửa
